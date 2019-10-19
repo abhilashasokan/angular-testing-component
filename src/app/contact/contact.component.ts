@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ContactService } from './../service/contact.service';
 
 @Component({
   selector: 'app-contact',
@@ -8,6 +9,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class ContactComponent implements OnInit {
   text = 'Contact page';
+  user: any;
   submitted = false;
 
   contactForm: FormGroup;
@@ -17,8 +19,9 @@ export class ContactComponent implements OnInit {
     text: ''
   };
 
-  constructor() {
+  constructor(private contactService: ContactService) {
     this.createForm();
+    this.user = contactService.getUser();
   }
 
   createForm(): void {

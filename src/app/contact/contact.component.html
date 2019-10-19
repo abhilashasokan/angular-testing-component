@@ -1,0 +1,18 @@
+<div>
+  {{ text }}
+</div>
+<div class="contact-form">
+  <form id="contact-form" [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
+    <div class="form-group">
+      <label for="name" class="center-block">Name:</label>
+      <input type="text" class="form-control" formControlName="name">
+      <label for="email" class="center-block">Email:</label>
+      <input type="text" class="form-control" formControlName="email">
+      <label class="center-block">Text:</label>
+      <input type="text" class="form-control" formControlName="text">
+    </div>
+    <button type="submit" [disabled]="!contactForm.valid" class="btn btn-success">
+      Save
+    </button>
+  </form>
+</div>
